@@ -1,17 +1,17 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: tile-hello-world
+  name: hello-world
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: tile-hello-world
+        app: hello-world
     spec:
       containers:
-      - name: tile-management-console
-        image: "registry.ng.bluemix.net/garage_catalog/hello-world:1"
+      - name: hello-world-container
+        image: "REGISTRY URL"
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -19,13 +19,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: tile-hello-world-service
+  name: hello-world-service
   labels:
-    app: tile-hello-world-service
+    app: hello-world-service
 spec:
   ports:
   - port: 8080
     protocol: TCP
   selector:
-    app: tile-hello-world-service
+    app: hello-world-service
   type: LoadBalancer
