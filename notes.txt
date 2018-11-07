@@ -1,0 +1,3 @@
+ibmcloud cr build -t registry.ng.bluemix.net/garage_catalog/hello-world:1 .
+
+kubectl delete deployments tile-hello-world; kubectl apply -f ./deployment-prod.yml
